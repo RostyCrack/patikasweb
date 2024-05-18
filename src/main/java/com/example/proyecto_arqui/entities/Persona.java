@@ -24,6 +24,8 @@ public class Persona {
     @Column(name = "id_persona")
     private String idPersona;
 
+    @Column(name = "veterinario")
+    private boolean veterinario;
 
 
 
