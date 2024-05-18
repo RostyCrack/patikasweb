@@ -20,6 +20,7 @@ public class Mascota {
     private String raza;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     @Column(name = "id_mascota")
     private int idMascota;
 
