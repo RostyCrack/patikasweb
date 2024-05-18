@@ -7,6 +7,8 @@ import com.example.proyecto_arqui.entities.Persona;
 import com.example.proyecto_arqui.entities.PersonaRepository;
 import com.example.proyecto_arqui.exceptions.MascotaNotFoundException;
 import com.example.proyecto_arqui.exceptions.PersonNotFoundException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,8 @@ public class MacotaService {
     }
 
 
-    public void crearMascota(){
+    public void crearMascota(Mascota M){
+        mascotaRepository.save(M);
         log.info("Creando mascota");
     }
 
@@ -59,6 +62,19 @@ public class MacotaService {
         return mascotaRepository.findAll();
     }
 
+    public Mascota MascotaFromJson(String json) {
+        ObjectMapper mapper = new ObjectMapper();
+        try 
+        {
+            return mapper.readValue(json, Mascota.class);
+        } 
+        catch (Exception e) {
+
+            log.error("Error al convertir a Mascota", e);
+            throw new RuntimeException("Error al sacar");
+
+        }
+    }
 
 
 
