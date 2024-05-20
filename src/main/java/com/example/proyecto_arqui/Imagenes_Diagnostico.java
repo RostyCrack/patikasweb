@@ -15,11 +15,18 @@ public class Imagenes_Diagnostico
         return instance;
     }
 
-    public void Mostrar_enfermedad(String enfermedad)
+    public void set_enfermedad(String enfermedad)
     {
       this.enfermedad=enfermedad;
     }
-    // public void Mostrar_enfermedad()
+
+    // public void setURL_image(String uRL_image) {
+    //     URL_image = uRL_image;
+    // }
+    //public void setURL_image() {
+        //     aca muestra la imagen sacandola con el url image
+        // }
+    // public void set_enfermedad()
     // {
     //  String enfermedad;
     //  Compara imagenes y si encuentra coincidencia lo guarda en enfermedad
@@ -27,8 +34,13 @@ public class Imagenes_Diagnostico
     //    
     // }
 
-    public void Decir_enfermedad()
+    public void Mostrar_enfermedad()
     {
         System.out.println("tiene "+ this.enfermedad);
     }
+
+    public String getEnfermedad() {
+        return enfermedad;
+    }
+    
 }
