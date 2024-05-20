@@ -42,6 +42,16 @@ public class MascotaController {
         log.info("jsonResult: {}", jsonResult);
         return ResponseEntity.ok(JsonUtil.convertObjectToJson(mascotaService.getAllMascotas()));
     }
+    @PostMapping("/save")
+    public ResponseEntity<String> saveMascota(String Mascota) {
+        try{
+            mascotaService.crearMascota(mascotaService.MascotaFromJson(Mascota));
+            return ResponseEntity.ok("Mascota guardada con exito");
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("No se pudo crear mascota");
+        }
+    }
 
 
 }
